@@ -1,0 +1,25 @@
+// Hybrid Inheritance (Diamond Effect)
+#include <iostream>
+using namespace std;
+
+class A{
+    public:
+        void showA(){
+            cout<< "ClassA" <<endl;
+        }
+};
+
+class B : virtual public A{
+};
+
+class C : virtual public A{
+};
+
+class D: public B, public C{
+};
+
+int main(){
+    D obj;
+    obj.showA(); // no ambiguity due to virtual inheritance
+    return 0;
+}
